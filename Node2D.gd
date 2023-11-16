@@ -13,4 +13,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	$Sprite.position = get_global_mouse_position()
+	var x = $TileMap.world_to_map(get_global_mouse_position()).x
+	var y = $TileMap.world_to_map(get_global_mouse_position()).y
+	$TileMap.set_cell(x, y, 0)
